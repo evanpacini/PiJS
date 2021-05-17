@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Worker Pi calculation</title>
+    <script src="chud-recursive.js"></script>
+  </head>
+  <body>
+    <script>
+      var worker = new Worker("chud-recursive.js");
+      worker.addEventListener("message", function (e) {
+        console.log(e.data);
+      });
+      function compute() {
+        const data = [parseInt(document.getElementById("start").value), parseInt(document.getElementById("end").value)];
+        worker.postMessage(data);
+      }
+    </script>
+    <label for="start">Start:</label>
+    <input type="number" id="start" name="start" min="0" />
+    <br />
+    <label for="end">End:</label>
+    <input type="number" id="end" name="end" min="0" />
+    <br />
+    <button onclick="compute()">Compute</button>
+  </body>
+</html>

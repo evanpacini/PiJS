@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Worker Pi calculation</title>
+    <script src="pi_bigint.js"></script>
+  </head>
+  <body>
+    <script>
+      var worker = new Worker("pi_bigint.js");
+      worker.addEventListener("message", function (e) {
+        console.log(e.data);
+      });
+      function compute() {
+        worker.postMessage(document.getElementById("digits").value);
+      }
+    </script>
+    <label for="digits">Digits:</label>
+    <input type="number" id="digits" name="digits" min="1" />
+    <br />
+    <button onclick="compute()">Compute</button>
+  </body>
+</html>
