@@ -1,5 +1,5 @@
 function fact(n) {
-  return (n > 2) * n * fact(n - 1n) + 1n * (n < 2);
+  return n > 1 ? n * fact(n - 1n) : 1n;
 }
 
 function fact2(n) {
