@@ -2,11 +2,11 @@
 <html>
   <head>
     <title>Worker Pi calculation</title>
-    <script src="piworker.js"></script>
+    <script src="machin.js"></script>
   </head>
   <body>
     <script>
-      var worker = new Worker("piworker.js");
+      var worker = new Worker("machin.js");
       worker.addEventListener("message", function (e) {
         console.log(e.data);
       });
